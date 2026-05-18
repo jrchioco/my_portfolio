@@ -546,6 +546,48 @@ nav.scrolled {
   font-weight: 600;
 }
 
+/* About photo */
+.about-photo {
+  margin-bottom: 2rem;
+}
+
+.about-photo img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--border);
+  filter: grayscale(20%);
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.about-photo img:hover {
+  filter: grayscale(0%);
+}
+
+.about-photo-caption {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.75rem;
+  gap: 0.2rem;
+}
+
+.about-photo-caption span:first-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-photo-caption span:last-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
 /* Proof of Work panel */
 .proof-panel {
   border: 1px solid var(--border);
@@ -847,8 +889,14 @@ nav.scrolled {
 .work-cta {
   font-family: 'IBM Plex Mono', monospace;
   font-size: var(--text-sm);
+  background: none;
+  border: none;
   color: var(--gold);
   text-decoration: none;
+}
+
+.work-cta {
+  cursor: pointer;
 }
 
 .work-cta:hover {
@@ -957,8 +1005,7 @@ nav.scrolled {
   transform: scale(1);
 }
 
-.lightbox-inner iframe,
-.lightbox-inner embed {
+.lightbox-inner iframe {
   width: 100%;
   height: 100%;
   border: none;
@@ -980,17 +1027,6 @@ nav.scrolled {
 
 .lightbox-close:hover {
   color: var(--gold);
-}
-
-.lightbox-fallback {
-  color: var(--muted);
-  text-align: center;
-  font-family: 'Syne', sans-serif;
-}
-
-.lightbox-fallback a {
-  color: var(--gold);
-  font-family: 'IBM Plex Mono', monospace;
 }
 
 /* ===== WHY ME ===== */
@@ -1406,6 +1442,13 @@ footer a:hover {
     <div class="section-label reveal"><span class="line"></span><span class="num">01 · ABOUT</span></div>
     <div class="about-grid">
       <div>
+        <div class="about-photo">
+          <img src="res/me.webp" alt="Jefferson C. Chioco Jr.">
+          <div class="about-photo-caption">
+            <span>Jefferson C. Chioco Jr.</span>
+            <span>San Jose del Monte, PH</span>
+          </div>
+        </div>
         <h2 class="reveal">Print-hardened.<br><em>Remote-ready.</em></h2>
         <div class="about-text reveal">
           <p>I'm Jefferson — a print production veteran from San Jose del Monte, Bulacan. I ran <strong>J3FF Printing Services</strong> across 3 branches for over a decade. Every day I worked with files that couldn't be redone once they hit the press. You learn fast what "good enough" actually costs.</p>
@@ -1573,7 +1616,7 @@ footer a:hover {
         </div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;">
           <a href="https://github.com/jrchioco/solar_flyer" target="_blank" rel="noopener" class="work-cta">→ View on GitHub</a>
-          <button class="work-cta" style="background:none;border:none;cursor:pointer;font-size:inherit;" onclick="openLightbox()">→ View Flyer</button>
+          <button class="work-cta" onclick="openLightbox()">→ View Flyer</button>
         </div>
       </div>
       <div class="work-card reveal">
@@ -1594,11 +1637,7 @@ footer a:hover {
 <div class="lightbox" id="lightbox">
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <embed id="pdfEmbed" src="solar_flyer_folio.pdf" type="application/pdf" onerror="pdfFallback()">
-    <div class="lightbox-fallback" id="pdfFallback" style="display:none;">
-      <p>PDF preview unavailable.</p>
-      <a href="solar_flyer_folio.pdf" target="_blank">Open PDF →</a>
-    </div>
+    <iframe src="projects/solar-flyer/index.html" title="Solar Hybrid Package Flyer"></iframe>
   </div>
 </div>
 
@@ -1936,11 +1975,6 @@ function closeLightbox() {
   const lb = document.getElementById('lightbox');
   lb.classList.remove('open');
   document.body.style.overflow = '';
-}
-
-function pdfFallback() {
-  document.getElementById('pdfEmbed').style.display = 'none';
-  document.getElementById('pdfFallback').style.display = 'block';
 }
 
 document.addEventListener('keydown', (e) => {

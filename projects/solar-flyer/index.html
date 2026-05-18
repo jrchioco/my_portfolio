@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hybrid Solar Package - Folio 8.5x13</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: 8.5in 13in;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #eef2f5;
+            margin: 0;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .flyer {
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            padding: 12px 16px 16px 16px;
+        }
+
+        /* New: top header with logo + company details */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo img {
+            max-height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+        .company-details {
+            text-align: right;
+            font-size: 10px;
+            color: #2d3748;
+            line-height: 1.4;
+        }
+        .company-name {
+            font-weight: 800;
+            font-size: 12px;
+            color: #1E3A5F;
+        }
+        .company-address, .company-contact {
+            font-size: 9px;
+        }
+        .company-contact a {
+            color: #1E3A5F;
+            text-decoration: none;
+        }
+
+        /* Existing main header (slightly reduced top margin) */
+        .main-header {
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 4px;
+        }
+        .main-header h1 {
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            color: #1E3A5F;
+            font-weight: 800;
+        }
+        .main-header h1 span {
+            color: #F49F1C;
+        }
+        .tagline {
+            font-size: 12px;
+            color: #4A5568;
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 12px 0 8px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            break-inside: avoid;
+            page-break-inside: avoid;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-header {
+            background: #1E3A5F;
+            padding: 8px 6px;
+            text-align: center;
+        }
+        .card-header h2 {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .rec-box {
+            background: #FFECB3;
+            margin: 8px 8px 4px;
+            padding: 6px 4px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .rec-label {
+            font-size: 9px;
+            font-weight: 600;
+            color: #2d3748;
+            text-transform: uppercase;
+        }
+        .bill-range {
+            font-size: 14px;
+            font-weight: 800;
+            color: #1E3A5F;
+            margin-top: 2px;
+        }
+
+        .package-image {
+            display: flex;
+            justify-content: center;
+            margin: 8px 12px 4px;
+        }
+        .package-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 110px;
+            object-fit: contain;
+        }
+
+        .spec-list {
+            padding: 4px 10px 8px;
+        }
+        .spec-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 4px;
+            margin-bottom: 6px;
+            font-size: 9px;
+            color: #2d3748;
+            line-height: 1.25;
+        }
+        .check {
+            color: #F49F1C;
+            font-weight: bold;
+            font-size: 10px;
+            min-width: 14px;
+        }
+
+        .savings-box {
+            background: #D9EAF7;
+            margin: 6px 8px;
+            padding: 6px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .savings-label {
+            font-size: 9px;
+            font-weight: 600;
+            color: #1E3A5F;
+        }
+        .savings-amount {
+            font-size: 14px;
+            font-weight: 800;
+            color: #0f2b44;
+            margin-top: 2px;
+        }
+
+        .price-footer {
+            margin-top: auto;
+            background: #1E3A5F;
+            padding: 8px 6px;
+            text-align: center;
+        }
+        .price-label {
+            font-size: 8px;
+            color: #cbd5e0;
+            letter-spacing: 0.5px;
+        }
+        .price-value {
+            font-size: 18px;
+            font-weight: 800;
+            color: #F49F1C;
+            margin-top: 2px;
+        }
+
+        .footer-banner {
+            background: #1E3A5F;
+            border-radius: 16px;
+            margin-top: 14px;
+            padding: 10px 12px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            align-items: center;
+        }
+        .footer-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: white;
+            font-size: 9px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .footer-icon {
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        /* Responsive: stack if too narrow */
+        @media (max-width: 600px) {
+            .top-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .company-details {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="flyer">
+    <!-- New top section: logo + company details -->
+    <div class="top-header">
+        <div class="logo">
+            <img src="logo.webp" alt="Insight Surveillance Solution Logo">
+        </div>
+        <div class="company-details">
+            <div class="company-name">Insight Surveillance Solution</div>
+            <div class="company-address">Marilao, Bulacan</div>
+            <div class="company-contact">📞 09279702389 &nbsp;|&nbsp; ✉️ <a href="mailto:zyraannleyte1017@gmail.com">Zyraannleyte1017@gmail.com</a></div>
+        </div>
+    </div>
+
+    <div class="main-header">
+        <h1>HYBRID <span>SOLAR PACKAGE</span></h1>
+        <div class="tagline">Reliable Energy. Lower Bills. Brighter Future.</div>
+    </div>
+
+    <div class="packages-grid" id="packageGrid"></div>
+
+    <div class="footer-banner">
+        <div class="footer-item"><span class="footer-icon">✅</span> All packages include installation & configuration.</div>
+        <div class="footer-item"><span class="footer-icon">🛡️</span> Quality Components Built to last.</div>
+        <div class="footer-item"><span class="footer-icon">🎧</span> After-sales support you can count on.</div>
+        <div class="footer-item"><span class="footer-icon">💰</span> SRP prices include installation – no hidden charges.</div>
+    </div>
+</div>
+
+<script>
+    const packages = [
+        { 
+            title: "3.6kW HYBRID", 
+            bill: "PHP 3,000 - 5,000", 
+            panels: "6x 630W Bifacial", 
+            inverter: "3.6kW Solis Hybrid", 
+            battery: "1x Dyness 100Ah 51.2V (5.12kWh) LiFePO₄", 
+            savings: "PHP 2,000 - 3,000", 
+            cost: "240,000.00", 
+            img: "1.webp" 
+        },
+        { 
+            title: "6kW HYBRID", 
+            bill: "PHP 6,000 - 7,000", 
+            panels: "10x 630W Bifacial", 
+            inverter: "6kW Solis Hybrid", 
+            battery: "1x Dyness 314Ah 51.2V (16kWh) LiFePO₄", 
+            savings: "PHP 4,000 - 5,500", 
+            cost: "390,000.00", 
+            img: "2.webp" 
+        },
+        { 
+            title: "8kW HYBRID", 
+            bill: "PHP 8,000 - 9,000", 
+            panels: "14x 630W Bifacial", 
+            inverter: "8kW Solis Hybrid", 
+            battery: "1x Dyness 314Ah 51.2V (16kWh) LiFePO₄", 
+            savings: "PHP 6,000 - 8,000", 
+            cost: "465,000.00", 
+            img: "3.webp" 
+        },
+        { 
+            title: "10kW HYBRID", 
+            bill: "PHP 10,000 - 11,000", 
+            panels: "16x 630W Bifacial", 
+            inverter: "10kW Solis Hybrid", 
+            battery: "1x Dyness 314Ah 51.2V (16kWh) LiFePO₄", 
+            savings: "PHP 8,000 - 9,500", 
+            cost: "510,000.00", 
+            img: "4.webp" 
+        },
+        { 
+            title: "12kW HYBRID", 
+            bill: "PHP 12,000 - 14,000", 
+            panels: "20x 630W Bifacial", 
+            inverter: "12kW Solis Hybrid", 
+            battery: "1x Dyness 314Ah 51.2V (16kWh) LiFePO₄", 
+            savings: "PHP 10,000 - 11,500", 
+            cost: "588,000.00", 
+            img: "5.webp" 
+        },
+        { 
+            title: "16kW HYBRID", 
+            bill: "PHP 15,000 - 17,000", 
+            panels: "26x 630W Bifacial", 
+            inverter: "16kW Solis Hybrid", 
+            battery: "2x Dyness 314Ah 51.2V (32kWh total) LiFePO₄", 
+            savings: "PHP 12,000 - 14,500", 
+            cost: "803,107.00", 
+            img: "6.webp" 
+        }
+    ];
+
+    const grid = document.getElementById('packageGrid');
+    packages.forEach(pkg => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        const imageHtml = `<div class="package-image"><img src="${pkg.img}" alt="${pkg.title}"></div>`;
+        card.innerHTML = `
+            <div class="card-header"><h2>${pkg.title}</h2></div>
+            <div class="rec-box">
+                <div class="rec-label">Recommended Household with bill up to</div>
+                <div class="bill-range">${pkg.bill}</div>
+            </div>
+            ${imageHtml}
+            <div class="spec-list">
+                <div class="spec-item"><span class="check">✓</span> Solar Panels: ${pkg.panels}</div>
+                <div class="spec-item"><span class="check">✓</span> Inverter: ${pkg.inverter}</div>
+                <div class="spec-item"><span class="check">✓</span> Battery: ${pkg.battery}</div>
+                <div class="spec-item"><span class="check">✓</span> Mounting Kits: End&Mid Clamps / Rails / Lfootings</div>
+                <div class="spec-item"><span class="check">✓</span> Wires & Connectors: Mc4/PV wires/AC wires</div>
+                <div class="spec-item"><span class="check">✓</span> Warranty: 12yrs Solar Panels, 5yrs Inverter (extendable to 10yrs), 10yrs Battery</div>
+            </div>
+            <div class="savings-box">
+                <div class="savings-label">Projected monthly savings</div>
+                <div class="savings-amount">${pkg.savings}</div>
+            </div>
+            <div class="price-footer">
+                <div class="price-label">PACKAGE COST</div>
+                <div class="price-value">₱ ${pkg.cost}</div>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+</script>
+</body>
+</html>
