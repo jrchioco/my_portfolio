@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jefferson C. Chioco Jr. — Document & Design VA</title>
+<meta name="description" content="Virtual Assistant specializing in PDF production, print-ready design, and document automation. 10+ years in professional printing. Based in the Philippines, available globally.">
+<meta property="og:title" content="Jefferson C. Chioco Jr. — Document & Design VA">
+<meta property="og:description" content="PDF editing, graphic design, and automated document pipelines. Print-hardened. Remote-ready.">
+<meta property="og:locale" content="en_PH">
+<meta name="theme-color" content="#0B0B09">
+<meta name="theme-color" content="#0B0B09" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Syne:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:         #0B0B09;
+  --surface:    #131311;
+  --surface2:   #1A1A17;
+  --border:     #272520;
+  --border2:    #333028;
+  --text:       #EDE8DC;
+  --muted:      #7A7468;
+  --dim:        #3D3B35;
+  --gold:       #C8A45A;
+  --gold-light: #E2C07E;
+  --gold-dim:   #6B5520;
+  --teal:       #52C4AF;
+  --teal-dim:   #1A4740;
+  --rust:       #C45A3C;
+
+  --text-xs:  0.65rem;
+  --text-sm:  0.8rem;
+  --text-base: 1rem;
+  --text-lg:  1.15rem;
+  --text-xl:  1.4rem;
+  --text-2xl: 2rem;
+  --text-3xl: 3rem;
+  --text-4xl: clamp(3rem, 5vw, 5rem);
+  --text-hero: clamp(4rem, 8vw, 7.5rem);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+
+a, button {
+  cursor: none;
+}
+
+::selection {
+  background: var(--gold-dim);
+  color: var(--text);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== GRAIN OVERLAY ===== */
+#grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* ===== CUSTOM CURSOR ===== */
+.cursor-dot {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.cursor-ring {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,164,90,0.5);
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, width 0.2s, height 0.2s, border-color 0.2s;
+}
+
+/* ===== PROGRESS BAR ===== */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--gold);
+  z-index: 10000;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: var(--text-hero);
+}
+
+h2 {
+  font-size: var(--text-4xl);
+  margin-bottom: 3rem;
+}
+
+h2 em, h2 i {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.mono {
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.mono-sm {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.teal {
+  color: var(--teal);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.dim {
+  color: var(--dim);
+}
+
+/* ===== HR ===== */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9990;
+  padding: 1.25rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+}
+
+nav.scrolled {
+  background: rgba(11,11,9,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* Mobile nav overlay */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(11,11,9,0.97);
+  z-index: 9995;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.nav-overlay.open {
+  display: flex;
+}
+
+.nav-overlay a {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: var(--text-3xl);
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-overlay a:hover {
+  color: var(--gold);
+}
+
+.nav-overlay-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 2rem;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ===== SECTION LABEL ===== */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  color: var(--dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-label .line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.section-label .num {
+  color: var(--muted);
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 7rem 2.5rem;
+}
+
+/* ===== HERO ===== */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse 80% 60% at 30% 50%, rgba(200,164,90,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  position: relative;
+}
+
+.hero-grid::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  width: 1px;
+  height: 80%;
+  background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  transform: translateX(-50%);
+}
+
+.hero-micro {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  color: var(--teal);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-micro span {
+  color: var(--gold-dim);
+  margin-right: 0.5rem;
+}
+
+.hero-h1 {
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.hero-h1 .char {
+  display: inline-block;
+  animation: charSlideUp 0.7s ease forwards;
+  opacity: 0;
+}
+
+@keyframes charSlideUp {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0% 0);
+    transform: translateY(0);
+  }
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: var(--text-2xl);
+  color: var(--gold-light);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.8s forwards;
+}
+
+.hero-tagline {
+  font-family: 'Syne', sans-serif;
+  color: var(--muted);
+  max-width: 36ch;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 1.2s forwards;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 1.6s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--bg);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: var(--text-base);
+  padding: 0.85rem 2rem;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  font-family: 'Syne', sans-serif;
+  font-size: var(--text-base);
+  padding: 0.85rem 2rem;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.btn-ghost:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+/* ===== HERO STAT CARDS ===== */
+.hero-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stat-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 1.5rem;
+  border-left: 3px solid var(--gold);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.4s; }
+.stat-card:nth-child(2) { animation-delay: 0.6s; }
+.stat-card:nth-child(3) { animation-delay: 0.8s; }
+
+.stat-card.teal-border {
+  border-left-color: var(--teal);
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-card.teal-border .stat-number,
+.stat-card.teal-border .stat-mono-big {
+  color: var(--teal);
+}
+
+.stat-mono-big {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.1rem;
+  color: var(--teal);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-xs);
+  color: var(--dim);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.35rem;
+}
+
+.stat-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+/* ===== ABOUT ===== */
+#about {
+  border-top: 1px solid var(--border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.about-text p {
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+}
+
+.about-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Proof of Work panel */
+.proof-panel {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 2rem;
+}
+
+.proof-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  color: var(--teal);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.proof-item {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.proof-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.proof-item:first-child {
+  padding-top: 0;
+}
+
+.proof-icon {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.proof-content .proof-title-line {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.proof-content .proof-desc {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.proof-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--gold);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.3rem;
+}
+
+.proof-link:hover {
+  text-decoration: underline;
+}
+
+.proof-link.teal {
+  color: var(--teal);
+  cursor: default;
+  text-decoration: none;
+}
+
+/* ===== SKILLS ===== */
+#skills {
+  background: var(--surface);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+}
+
+.skill-col {
+  background: var(--bg);
+  padding: 2.5rem 2rem;
+}
+
+.skill-col-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.skill-col:nth-child(3) .skill-col-label {
+  color: var(--teal);
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.skill-item.visible {
+  animation: skillIn 0.5s ease forwards;
+}
+
+@keyframes skillIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.skill-item:last-child {
+  border-bottom: none;
+}
+
+.skill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 0;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.skill-dot.gray {
+  background: var(--dim);
+}
+
+.skill-dot.teal {
+  background: var(--teal);
+}
+
+.skill-dot.teal-dim {
+  background: var(--dim);
+}
+
+.skill-name {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--text-sm);
+  color: var(--text);
+}
+
+.skill-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--muted);
+  background: var(--surface2);
+  padding: 0.15rem 0.4rem;
+  margin-left: auto;
+}
+
+/* ===== SERVICES ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+}
+
+.service-card {
+  background: var(--bg);
+  padding: 2.5rem 2rem;
+  border-left: 3px solid var(--border2);
+  transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover {
+  background: var(--surface);
+  transform: translateY(-3px);
+}
+
+.service-card:nth-child(2) {
+  border-left-color: var(--gold);
+}
+
+.service-card:nth-child(3) {
+  border-left-color: var(--teal);
+}
+
+.tier-badge {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.6rem;
+  margin-bottom: 1rem;
+  background: var(--surface2);
+  color: var(--dim);
+  border: 1px solid var(--border);
+}
+
+.tier-badge.mid {
+  background: var(--gold-dim);
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.tier-badge.premium {
+  background: var(--teal-dim);
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+.service-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.service-desc {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.service-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.service-tools span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--muted);
+  background: var(--surface2);
+  padding: 0.25rem 0.5rem;
+}
+
+/* ===== WORK ===== */
+.work-featured {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.work-type {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--teal);
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.work-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 6rem;
+  font-weight: 300;
+  color: var(--dim);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.work-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.work-desc {
+  font-family: 'Syne', sans-serif;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.work-tags span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.5rem;
+}
+
+.work-cta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.work-cta:hover {
+  text-decoration: underline;
+}
+
+/* Browser mockup */
+.browser-mockup {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+
+.browser-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dim);
+}
+
+.browser-url {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--muted);
+  margin-left: 0.5rem;
+}
+
+.browser-content {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.browser-nav {
+  height: 18px;
+  background: var(--surface2);
+  border-radius: 0;
+  width: 100%;
+}
+
+.browser-hero {
+  height: 48px;
+  background: var(--surface2);
+  width: 80%;
+}
+
+.browser-hero-accent {
+  height: 3px;
+  background: var(--gold);
+  width: 0%;
+  animation: pulseAccent 2s ease-in-out infinite;
+}
+
+@keyframes pulseAccent {
+  0%, 100% { width: 0%; opacity: 0.3; }
+  50% { width: 100%; opacity: 1; }
+}
+
+.browser-cards {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.browser-card {
+  height: 32px;
+  background: var(--border);
+  flex: 1;
+}
+
+/* Work sub-grid */
+.work-sub {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.work-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 2rem;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.92);
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.open {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-inner {
+  width: 90%;
+  max-width: 900px;
+  height: 85vh;
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.open .lightbox-inner {
+  transform: scale(1);
+}
+
+.lightbox-inner iframe,
+.lightbox-inner embed {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.25rem;
+}
+
+.lightbox-close:hover {
+  color: var(--gold);
+}
+
+.lightbox-fallback {
+  color: var(--muted);
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+}
+
+.lightbox-fallback a {
+  color: var(--gold);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ===== WHY ME ===== */
+#why {
+  background: var(--surface);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.pull-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--muted);
+  line-height: 1.4;
+  padding-left: 2rem;
+  border-left: 3px solid var(--gold);
+}
+
+.pull-quote em {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.why-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.why-point {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.why-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  font-size: 1rem;
+}
+
+.why-point-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.why-point-text {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+/* ===== CONTACT ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-sub {
+  font-family: 'Syne', sans-serif;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  max-width: 36ch;
+  line-height: 1.7;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-link-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.contact-link-row + .contact-link-row {
+  border-top: none;
+}
+
+.contact-link-row:hover {
+  border-color: var(--gold);
+}
+
+.contact-link-icon {
+  font-size: 1.1rem;
+  width: 1.5rem;
+  text-align: center;
+}
+
+.contact-link-value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  color: var(--text);
+  flex: 1;
+}
+
+.contact-link-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--dim);
+  letter-spacing: 0.12em;
+}
+
+/* Contact form */
+.form-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.75rem 1rem;
+  font-family: 'Syne', sans-serif;
+  font-size: var(--text-sm);
+  border-radius: 0;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--dim);
+}
+
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237A7468'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  cursor: pointer;
+}
+
+.form-group select option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.btn-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--bg);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: var(--text-base);
+  padding: 0.85rem 2rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-submit:hover {
+  transform: translateY(-1px);
+}
+
+.btn-submit.sent {
+  background: var(--teal);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+footer span, footer a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-xs);
+  color: var(--dim);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--gold);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-grid::after {
+    display: none;
+  }
+
+  .hero-stats {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .stat-card {
+    min-width: 220px;
+    flex-shrink: 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .work-sub {
+    grid-template-columns: 1fr;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .cursor-dot, .cursor-ring {
+    display: none !important;
+  }
+
+  body, a, button {
+    cursor: auto;
+  }
+
+  nav {
+    padding: 1rem 1.25rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .container {
+    padding: 4rem 1.25rem;
+  }
+
+  #hero {
+    min-height: auto;
+    padding: 6rem 0 3rem;
+  }
+
+  .hero-grid {
+    padding: 0 1.25rem;
+  }
+
+  .hero-h1 {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-xl);
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+  }
+
+  .section-label {
+    font-size: 0.6rem;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media (min-width: 601px) {
+  .hamburger {
+    display: none;
+  }
+
+  .nav-overlay {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div id="grain"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div id="progress-bar"></div>
+
+<!-- ===== NAV ===== -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Jefferson C. Chioco Jr.</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-overlay-close" id="navOverlayClose">✕</button>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#services">Services</a>
+  <a href="#work">Work</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-micro"><span>──</span> Available for Remote Work · San Jose del Monte, PH</div>
+      <h1 class="hero-h1" id="heroH1">Jefferson<br>C. Chioco Jr.</h1>
+      <div class="hero-subtitle">Document &amp; Design VA</div>
+      <p class="hero-tagline">A decade in professional printing — now helping remote clients produce print-ready files, polished PDFs, and automated document workflows that actually work.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Hire Me →</a>
+        <a href="#work" class="btn-ghost">See My Work</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-number" id="statYears">0</div>
+        <div class="stat-label">YEARS IN PRINT PRODUCTION</div>
+        <div class="stat-sub">GIMP · Inkscape · Adobe Acrobat · MS Office</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="statBranches">0</div>
+        <div class="stat-label">BRANCHES OPERATED</div>
+        <div class="stat-sub">Document · Stickers · Bindery · Merchandise</div>
+      </div>
+      <div class="stat-card teal-border">
+        <div class="stat-mono-big">HTML → PDF</div>
+        <div class="stat-label">AUTOMATED PIPELINE</div>
+        <div class="stat-sub">Puppeteer · Vibe Coded · Print-Quality Output</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span><span class="num">01 · ABOUT</span></div>
+    <h2 class="reveal">Print-hardened.<br><em>Remote-ready.</em></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm Jefferson — a print production veteran from San Jose del Monte, Bulacan. I ran <strong>J3FF Printing Services</strong> across 3 branches for over a decade. Every day I worked with files that couldn't be redone once they hit the press. You learn fast what "good enough" actually costs.</p>
+        <p>Now I'm taking that same precision online. Most VAs handle email and scheduling. I do that too — but I can also catch a low-res bleed error, rebuild a broken PDF form, design a booklet from scratch, and <strong>automate the whole output with a Puppeteer pipeline.</strong></p>
+        <p>I work at the intersection of print craft and digital tools. I speak both the design language and the technical one. One specialist instead of three.</p>
+      </div>
+      <div class="reveal">
+        <div class="proof-panel">
+          <div class="proof-title">// PROOF OF WORK</div>
+          <div class="proof-item">
+            <div class="proof-icon">🌐</div>
+            <div class="proof-content">
+              <div class="proof-title-line">J3FF Printing Services</div>
+              <div class="proof-desc">Live website · Built from scratch · SEO-optimized</div>
+              <a href="https://jrchioco.github.io/j3ff-printing/" target="_blank" rel="noopener" class="proof-link">jrchioco.github.io/j3ff-printing →</a>
+            </div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-icon">☀️</div>
+            <div class="proof-content">
+              <div class="proof-title-line">Solar Hybrid Flyer</div>
+              <div class="proof-desc">Client work · Insight Surveillance Solution · Print-ready PDF</div>
+              <a href="https://github.com/jrchioco/solar_flyer" target="_blank" rel="noopener" class="proof-link">github.com/jrchioco/solar_flyer →</a>
+            </div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-icon">⚙️</div>
+            <div class="proof-content">
+              <div class="proof-title-line">PDF Automation Pipeline</div>
+              <div class="proof-desc">HTML/CSS → Puppeteer → pixel-perfect PDF</div>
+              <span class="proof-link teal">Available on request</span>
+            </div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-icon">🏢</div>
+            <div class="proof-content">
+              <div class="proof-title-line">3 Branches · 10 Years</div>
+              <div class="proof-desc">San Jose del Monte, Bulacan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span><span class="num">02 · SKILLS</span></div>
+    <h2 class="reveal">What I <em>actually</em> know how to do.</h2>
+    <div class="skills-grid reveal">
+      <!-- Col 1 -->
+      <div class="skill-col">
+        <div class="skill-col-label">// DOCUMENT PRODUCTION</div>
+        <div class="skill-item" data-delay="0"><span class="skill-dot"></span><span class="skill-name">Adobe Acrobat</span><span class="skill-tag">[10 yrs]</span></div>
+        <div class="skill-item" data-delay="40"><span class="skill-dot"></span><span class="skill-name">PDF Edit · Merge · Split · Forms</span></div>
+        <div class="skill-item" data-delay="80"><span class="skill-dot"></span><span class="skill-name">Microsoft Word</span></div>
+        <div class="skill-item" data-delay="120"><span class="skill-dot"></span><span class="skill-name">Microsoft Excel</span></div>
+        <div class="skill-item" data-delay="160"><span class="skill-dot"></span><span class="skill-name">Microsoft PowerPoint</span></div>
+        <div class="skill-item" data-delay="200"><span class="skill-dot gray"></span><span class="skill-name">Document Formatting &amp; Templates</span></div>
+        <div class="skill-item" data-delay="240"><span class="skill-dot gray"></span><span class="skill-name">File Organization &amp; Management</span></div>
+      </div>
+      <!-- Col 2 -->
+      <div class="skill-col">
+        <div class="skill-col-label">// DESIGN &amp; PRINT</div>
+        <div class="skill-item" data-delay="0"><span class="skill-dot"></span><span class="skill-name">GIMP</span><span class="skill-tag">[raster]</span></div>
+        <div class="skill-item" data-delay="40"><span class="skill-dot"></span><span class="skill-name">Inkscape</span><span class="skill-tag">[vector]</span></div>
+        <div class="skill-item" data-delay="80"><span class="skill-dot"></span><span class="skill-name">Print-Ready File Prep</span></div>
+        <div class="skill-item" data-delay="120"><span class="skill-dot"></span><span class="skill-name">Bleed · Crop Marks · CMYK</span></div>
+        <div class="skill-item" data-delay="160"><span class="skill-dot gray"></span><span class="skill-name">Poster · Booklet · Multiple Print</span></div>
+        <div class="skill-item" data-delay="200"><span class="skill-dot gray"></span><span class="skill-name">Stickers · Banners · Merch Layouts</span></div>
+        <div class="skill-item" data-delay="240"><span class="skill-dot gray"></span><span class="skill-name">Color Management</span></div>
+      </div>
+      <!-- Col 3 -->
+      <div class="skill-col">
+        <div class="skill-col-label">// TECH &amp; AUTOMATION</div>
+        <div class="skill-item" data-delay="0"><span class="skill-dot teal"></span><span class="skill-name">HTML / CSS</span><span class="skill-tag">[AI-assisted]</span></div>
+        <div class="skill-item" data-delay="40"><span class="skill-dot teal"></span><span class="skill-name">Puppeteer (PDF generation)</span></div>
+        <div class="skill-item" data-delay="80"><span class="skill-dot teal"></span><span class="skill-name">Vibe Coding Workflow</span></div>
+        <div class="skill-item" data-delay="120"><span class="skill-dot teal"></span><span class="skill-name">GitHub / Version Control</span></div>
+        <div class="skill-item" data-delay="160"><span class="skill-dot teal"></span><span class="skill-name">Static Site Deployment</span></div>
+        <div class="skill-item" data-delay="200"><span class="skill-dot teal-dim"></span><span class="skill-name">OpenCode / AI Tools</span></div>
+        <div class="skill-item" data-delay="240"><span class="skill-dot teal-dim"></span><span class="skill-name">Print-to-Web Pipeline</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span><span class="num">03 · SERVICES</span></div>
+    <h2 class="reveal">Three tiers.<br><em>One specialist.</em></h2>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="tier-badge">BASIC</span>
+        <div class="service-title">PDF &amp; Document Work</div>
+        <div class="service-desc">Clean editing, merging, splitting PDFs. Creating or filling forms. Formatting Word documents, Excel sheets, and presentations to your exact standards. Catch errors before delivery.</div>
+        <div class="service-tools">
+          <span>Adobe Acrobat</span><span>MS Word</span><span>MS Excel</span><span>PowerPoint</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="tier-badge mid">MID</span>
+        <div class="service-title">Graphic &amp; Print Design</div>
+        <div class="service-desc">Flyers, stickers, brochures, social assets, and print-ready files. I check resolution, bleed, and color profiles before delivery — not after you've already paid.</div>
+        <div class="service-tools">
+          <span>GIMP</span><span>Inkscape</span><span>Acrobat</span><span>Print Specs</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="tier-badge premium">PREMIUM</span>
+        <div class="service-title">PDF Automation Pipeline</div>
+        <div class="service-desc">Need beautiful PDFs at scale? I design the template in HTML/CSS then generate pixel-perfect PDFs via Puppeteer from your data. Proposals, reports, brochures — on demand, every time identical.</div>
+        <div class="service-tools">
+          <span>HTML / CSS</span><span>Puppeteer</span><span>AI-Assisted Design</span><span>Node.js</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORK ===== -->
+<section id="work">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span><span class="num">04 · WORK</span></div>
+    <h2 class="reveal">Work that <em>ships.</em></h2>
+
+    <!-- Featured -->
+    <div class="work-featured reveal">
+      <div>
+        <div class="work-type">LIVE WEBSITE · FULL BUILD</div>
+        <div class="work-number">01</div>
+        <div class="work-title">J3FF Printing Services</div>
+        <div class="work-desc">Built entirely from scratch — a multi-section business site for my family's printing shop. Services, transparent pricing, photo gallery, testimonials, contact form, 3 branch map links. SEO-optimized with proper meta tags, OG data, and locale settings for the Philippines.</div>
+        <div class="work-tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>SEO</span><span>Google Maps</span>
+        </div>
+        <a href="https://jrchioco.github.io/j3ff-printing/" target="_blank" rel="noopener" class="work-cta">→ View Live Site</a>
+      </div>
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-url">jrchioco.github.io/j3ff-printing/</span>
+        </div>
+        <div class="browser-content">
+          <div class="browser-nav"></div>
+          <div class="browser-hero-accent"></div>
+          <div class="browser-hero"></div>
+          <div class="browser-cards">
+            <div class="browser-card"></div>
+            <div class="browser-card"></div>
+            <div class="browser-card"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sub cards -->
+    <div class="work-sub">
+      <div class="work-card reveal">
+        <div class="work-type">CLIENT WORK · PRINT-READY DESIGN</div>
+        <div class="work-number">02</div>
+        <div class="work-title">Solar Hybrid Package Flyer</div>
+        <div class="work-desc">Freelance design project for Insight Surveillance Solution, Bulacan. A 6-tier solar package pricing flyer — branded layout, product photos, pricing cards, and print-ready PDF output for client distribution.</div>
+        <div class="work-tags">
+          <span>Client Work</span><span>Print Design</span><span>PDF Output</span><span>Branding</span>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="https://github.com/jrchioco/solar_flyer" target="_blank" rel="noopener" class="work-cta">→ View on GitHub</a>
+          <button class="work-cta" style="background:none;border:none;cursor:pointer;font-size:inherit;" onclick="openLightbox()">→ View Flyer</button>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-type">AUTOMATION · WORKFLOW</div>
+        <div class="work-number">03</div>
+        <div class="work-title">HTML → PDF Automation</div>
+        <div class="work-desc">Custom pipeline: design a template with AI-assisted HTML/CSS, then run through Puppeteer to generate pixel-perfect, scalable PDFs from data. Built for proposals, catalogs, and branded reports. Available on request.</div>
+        <div class="work-tags">
+          <span>Puppeteer</span><span>HTML/CSS</span><span>Node.js</span><span>AI-Assisted</span>
+        </div>
+        <span class="work-cta" style="color:var(--teal);cursor:default;">→ Available on Request</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <embed id="pdfEmbed" src="solar_flyer_folio.pdf" type="application/pdf" onerror="pdfFallback()">
+    <div class="lightbox-fallback" id="pdfFallback" style="display:none;">
+      <p>PDF preview unavailable.</p>
+      <a href="solar_flyer_folio.pdf" target="_blank">Open PDF →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WHY ME ===== -->
+<section id="why">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span><span class="num">05 · WHY ME</span></div>
+    <h2 class="reveal">What you don't get<br>from <em>most VAs.</em></h2>
+    <div class="why-grid">
+      <div class="reveal">
+        <div class="pull-quote">
+          "Most VAs can reschedule a meeting.<br>I can tell you your bleed margin<br>is wrong — and <em>fix it</em> before it<br><em>costs you</em>."
+        </div>
+      </div>
+      <div class="why-points">
+        <div class="why-point reveal">
+          <div class="why-icon">🔍</div>
+          <div class="why-point-text"><strong>Print-level quality instinct</strong> — A decade of catching errors before production. That same eye applies to every file I touch for clients.</div>
+        </div>
+        <div class="why-point reveal">
+          <div class="why-icon">⚡</div>
+          <div class="why-point-text"><strong>Design + Document + Automation</strong> — Rare combo. Design it, format it, automate it. One person instead of three.</div>
+        </div>
+        <div class="why-point reveal">
+          <div class="why-icon">🛠</div>
+          <div class="why-point-text"><strong>Open-source fluent</strong> — Built my workflow on GIMP and Inkscape. No expensive software licenses needed on your end.</div>
+        </div>
+        <div class="why-point reveal">
+          <div class="why-icon">💬</div>
+          <div class="why-point-text"><strong>You talk to the person doing the work</strong> — No middlemen, no lost messages. Ask anything, get a straight answer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label reveal"><span class="line"></span><span class="num">06 · CONTACT</span></div>
+    <h2 class="reveal">Let's work<br><em>together.</em></h2>
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="contact-sub">Open to freelance, part-time, and project-based engagements. Based in the Philippines, available globally.</p>
+        <div class="contact-links">
+          <a href="mailto:jrchioco008@gmail.com" class="contact-link-row">
+            <span class="contact-link-icon">✉</span>
+            <span class="contact-link-value">jrchioco008@gmail.com</span>
+            <span class="contact-link-label">EMAIL</span>
+          </a>
+          <a href="tel:+639519575550" class="contact-link-row">
+            <span class="contact-link-icon">📱</span>
+            <span class="contact-link-value">+63 951-957-5550 / +63 976-321-2768</span>
+            <span class="contact-link-label">PHONE / WHATSAPP</span>
+          </a>
+          <a href="https://github.com/jrchioco" target="_blank" rel="noopener" class="contact-link-row">
+            <span class="contact-link-icon">⌥</span>
+            <span class="contact-link-value">github.com/jrchioco</span>
+            <span class="contact-link-label">GITHUB</span>
+          </a>
+          <a href="https://www.facebook.com/gaussmain" target="_blank" rel="noopener" class="contact-link-row">
+            <span class="contact-link-icon">f</span>
+            <span class="contact-link-value">Facebook</span>
+            <span class="contact-link-label">SOCIAL</span>
+          </a>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="form-label">Send a Message</span>
+        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <select name="service" required>
+              <option value="" disabled selected>Service Needed</option>
+              <option>PDF Editing &amp; Docs</option>
+              <option>Graphic &amp; Print Design</option>
+              <option>PDF Automation Pipeline</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder="Tell me about your project" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <span>JEFFERSON C. CHIOCO JR. · VA</span>
+  <div>
+    <a href="https://jrchioco.github.io/j3ff-printing/" target="_blank" rel="noopener">J3FF Printing</a>
+    <span style="margin:0 0.5rem;">·</span>
+    <a href="https://github.com/jrchioco" target="_blank" rel="noopener">GitHub</a>
+    <span style="margin:0 0.5rem;">·</span>
+    <a href="mailto:jrchioco008@gmail.com">Email</a>
+  </div>
+  <span>San Jose del Monte, PH · © 2026</span>
+</footer>
+
+<script>
+// ===== CUSTOM CURSOR =====
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0;
+let ringX = 0, ringY = 0;
+
+if (window.innerWidth > 600) {
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+  });
+
+  function lerpRing() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(lerpRing);
+  }
+  lerpRing();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      dot.style.transform = 'translate(-50%, -50%) scale(0)';
+      dot.style.opacity = '0';
+      ring.style.width = '50px';
+      ring.style.height = '50px';
+      ring.style.borderColor = '#C8A45A';
+    });
+    el.addEventListener('mouseleave', () => {
+      dot.style.transform = 'translate(-50%, -50%) scale(1)';
+      dot.style.opacity = '1';
+      ring.style.width = '28px';
+      ring.style.height = '28px';
+      ring.style.borderColor = 'rgba(200,164,90,0.5)';
+    });
+  });
+} else {
+  dot.style.display = 'none';
+  ring.style.display = 'none';
+}
+
+// ===== PROGRESS BAR =====
+const progressBar = document.getElementById('progress-bar');
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = progress + '%';
+});
+
+// ===== NAV SCROLL =====
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// ===== SCROLL SPY =====
+const sections = document.querySelectorAll('section[id]');
+const navAnchors = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 150;
+    if (window.scrollY >= top) {
+      current = section.getAttribute('id');
+    }
+  });
+  navAnchors.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) {
+      a.classList.add('active');
+    }
+  });
+});
+
+// ===== MOBILE NAV =====
+const hamburger = document.getElementById('hamburgerBtn');
+const navOverlay = document.getElementById('navOverlay');
+const navOverlayClose = document.getElementById('navOverlayClose');
+
+hamburger.addEventListener('click', () => {
+  navOverlay.classList.add('open');
+});
+
+navOverlayClose.addEventListener('click', () => {
+  navOverlay.classList.remove('open');
+});
+
+navOverlay.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navOverlay.classList.remove('open');
+  });
+});
+
+// ===== HERO CHAR ANIMATION =====
+const heroH1 = document.getElementById('heroH1');
+const text = heroH1.innerText;
+heroH1.innerHTML = '';
+for (let i = 0; i < text.length; i++) {
+  const ch = text[i];
+  if (ch === '\n') {
+    heroH1.appendChild(document.createElement('br'));
+    continue;
+  }
+  const span = document.createElement('span');
+  span.className = 'char';
+  span.innerHTML = ch === ' ' ? '&nbsp;' : ch;
+  span.style.animationDelay = (i * 0.03) + 's';
+  heroH1.appendChild(span);
+}
+
+// ===== COUNTER ANIMATION =====
+function animateCounter(el, target, duration) {
+  const start = performance.now();
+  const isPlus = target > 10;
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(ease * target);
+    el.textContent = current + (isPlus ? '+' : '');
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = target + (isPlus ? '+' : '');
+  }
+  requestAnimationFrame(update);
+}
+
+setTimeout(() => {
+  animateCounter(document.getElementById('statYears'), 10, 1500);
+  animateCounter(document.getElementById('statBranches'), 3, 1500);
+}, 100);
+
+// ===== SCROLL REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// ===== SKILL STAGGER =====
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const items = entry.target.querySelectorAll('.skill-item');
+      items.forEach((item, i) => {
+        const delay = parseInt(item.getAttribute('data-delay')) || i * 40;
+        setTimeout(() => {
+          item.classList.add('visible');
+        }, delay);
+      });
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.skill-col').forEach(col => {
+  skillObserver.observe(col);
+});
+
+// ===== SERVICE CARD STAGGER =====
+const serviceObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const cards = entry.target.querySelectorAll('.service-card');
+      cards.forEach((card, i) => {
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, i * 150);
+      });
+    }
+  });
+}, { threshold: 0.1 });
+
+const servicesGrid = document.querySelector('.services-grid');
+if (servicesGrid) {
+  servicesGrid.querySelectorAll('.service-card').forEach(c => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(28px)';
+    c.style.transition = 'opacity 0.7s ease, transform 0.7s ease, background 0.3s ease, border-color 0.3s ease';
+  });
+  serviceObserver.observe(servicesGrid);
+}
+
+// ===== WHY POINTS STAGGER =====
+const whyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const points = entry.target.querySelectorAll('.why-point');
+      points.forEach((point, i) => {
+        setTimeout(() => {
+          point.classList.add('visible');
+        }, i * 100);
+      });
+    }
+  });
+}, { threshold: 0.1 });
+
+const whyContainer = document.querySelector('.why-points');
+if (whyContainer) whyObserver.observe(whyContainer);
+
+// ===== LIGHTBOX =====
+function openLightbox() {
+  const lb = document.getElementById('lightbox');
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  const lb = document.getElementById('lightbox');
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function pdfFallback() {
+  document.getElementById('pdfEmbed').style.display = 'none';
+  document.getElementById('pdfFallback').style.display = 'block';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.getElementById('lightbox').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeLightbox();
+});
+
+// ===== FORM =====
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Message Sent ✓';
+  btn.classList.add('sent');
+  setTimeout(() => {
+    btn.textContent = 'Send Message →';
+    btn.classList.remove('sent');
+    document.getElementById('contactForm').reset();
+  }, 3000);
+}
+</script>
+
+</body>
+</html>
