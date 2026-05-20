@@ -30,6 +30,7 @@
   --gold-dim:   #6B5520;
   --teal:       #52C4AF;
   --teal-dim:   #1A4740;
+  --rust:       #8B3A3A;
   --text-xs:  0.65rem;
   --text-sm:  0.8rem;
   --text-base: 1rem;
@@ -59,10 +60,19 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
+  cursor: auto;
 }
 
 a, button {
+  cursor: auto;
+}
+
+body.js-cursor {
+  cursor: none;
+}
+
+body.js-cursor a,
+body.js-cursor button {
   cursor: none;
 }
 
@@ -85,8 +95,9 @@ img {
   height: 100vh;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.4;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  background-repeat: repeat;
+  background-size: 200px 200px;
 }
 
 /* ===== CUSTOM CURSOR ===== */
@@ -970,23 +981,23 @@ nav.scrolled {
 
 /* Lightbox */
 .lightbox {
-  display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   background: rgba(0,0,0,0.92);
-  z-index: 99999;
+  z-index: 10000;
+  display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .lightbox.open {
-  display: flex;
   opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }
 
 .lightbox-inner {
@@ -1708,6 +1719,10 @@ footer a:hover {
       <div class="reveal">
         <span class="form-label">Send a Message</span>
         <form id="contactForm" onsubmit="handleFormSubmit(event)">
+          <input type="hidden" name="access_key" value="5c1323de-61a6-4cb6-888c-3d1b43da3db4">
+          <input type="hidden" name="subject" value="New Portfolio Inquiry — Jefferson C. Chioco Jr.">
+          <input type="hidden" name="from_name" value="Portfolio Contact Form">
+          <input type="checkbox" name="botcheck" style="display:none;">
           <div class="form-group">
             <input type="text" name="name" placeholder="Your Name" required>
           </div>
@@ -1747,28 +1762,63 @@ footer a:hover {
 </footer>
 
 <script>
+// ===== GRAIN CANVAS (generated once, static) =====
+(function() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 200;
+  canvas.height = 200;
+  const ctx = canvas.getContext('2d');
+  const imageData = ctx.createImageData(200, 200);
+  const data = imageData.data;
+  for (let i = 0; i < data.length; i += 4) {
+    const v = Math.random() * 255;
+    data[i] = v;
+    data[i+1] = v;
+    data[i+2] = v;
+    data[i+3] = 18;
+  }
+  ctx.putImageData(imageData, 0, 0);
+  const grain = document.getElementById('grain');
+  if (grain) {
+    grain.style.backgroundImage = `url(${canvas.toDataURL()})`;
+  }
+})();
+
 // ===== CUSTOM CURSOR =====
 const dot = document.getElementById('cursorDot');
 const ring = document.getElementById('cursorRing');
 let mouseX = 0, mouseY = 0;
 let ringX = 0, ringY = 0;
+let rafActive = false;
 
 if (window.innerWidth > 600) {
+  document.body.classList.add('js-cursor');
+
+  function lerpRing() {
+    const dx = mouseX - ringX;
+    const dy = mouseY - ringY;
+    ringX += dx * 0.15;
+    ringY += dy * 0.15;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+
+    if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
+      rafActive = false;
+      return;
+    }
+    requestAnimationFrame(lerpRing);
+  }
+
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
     dot.style.left = mouseX + 'px';
     dot.style.top = mouseY + 'px';
+    if (!rafActive) {
+      rafActive = true;
+      requestAnimationFrame(lerpRing);
+    }
   });
-
-  function lerpRing() {
-    ringX += (mouseX - ringX) * 0.15;
-    ringY += (mouseY - ringY) * 0.15;
-    ring.style.left = ringX + 'px';
-    ring.style.top = ringY + 'px';
-    requestAnimationFrame(lerpRing);
-  }
-  lerpRing();
 
   document.querySelectorAll('a, button').forEach(el => {
     el.addEventListener('mouseenter', () => {
@@ -1787,6 +1837,7 @@ if (window.innerWidth > 600) {
     });
   });
 } else {
+  document.body.classList.remove('js-cursor');
   dot.style.display = 'none';
   ring.style.display = 'none';
 }
@@ -1986,16 +2037,46 @@ document.getElementById('lightbox').addEventListener('click', (e) => {
 });
 
 // ===== FORM =====
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
-  btn.textContent = 'Message Sent ✓';
-  btn.classList.add('sent');
-  setTimeout(() => {
-    btn.textContent = 'Send Message →';
-    btn.classList.remove('sent');
-    document.getElementById('contactForm').reset();
-  }, 3000);
+  const form = document.getElementById('contactForm');
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const result = await res.json();
+
+    if (result.success) {
+      btn.textContent = 'Message Sent ✓';
+      btn.classList.add('sent');
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.classList.remove('sent');
+        btn.disabled = false;
+      }, 4000);
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch (err) {
+    btn.textContent = 'Failed — Try Again';
+    btn.style.background = 'var(--rust)';
+    btn.disabled = false;
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+    }, 3000);
+  }
 }
 </script>
 
